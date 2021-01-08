@@ -13,12 +13,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Setup Terraform
-        uses: autero1/action-terraform@v0.1.0
-        with:
-          terraform_version: 0.12.20
-      - name: Interact with Terraform
-        run: terraform --version
+    steps:
+    - uses: hashicorp/setup-terraform@v1
+      with:
+        terraform_version: 0.12.25
+    steps:
+    - uses: hashicorp/setup-terraform@v1
+
+    - run: terraform init
+
+    - id: plan
+      run: terraform plan -no-color
       #
       # - name: Setup Terraform
       #   uses: hashicorp/setup-terraform@v1
