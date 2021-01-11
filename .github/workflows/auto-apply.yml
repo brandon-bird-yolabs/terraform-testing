@@ -14,8 +14,7 @@ jobs:
       - uses: khan/pull-request-comment-trigger@master
         id: check
         with:
-          trigger: '@apply'
-          reaction: rocket
+          trigger: '#apply'
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
       - name: Terraform Auto-apply
