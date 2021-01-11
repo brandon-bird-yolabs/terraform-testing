@@ -18,5 +18,5 @@ jobs:
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
       - name: Terraform Auto-apply
-        if: steps.check.outputs.triggered == 'failure'
+        if: steps.check.outputs.triggered == 'false'
         run: exit 1
