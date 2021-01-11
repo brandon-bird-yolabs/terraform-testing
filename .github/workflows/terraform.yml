@@ -55,6 +55,14 @@ jobs:
               body: output
             })
 
+      - name: comment PR
+        uses: unsplash/comment-on-pr@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          msg: "apply"
+          check_for_duplicate_msg: false  # OPTIONAL
+
       - name: Terraform Plan Status
         if: steps.plan.outcome == 'failure'
         run: exit 1
