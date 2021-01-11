@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - master
+  pull_request:
+  pull_request_review_comment:
   label:
     types: [created, deleted]
 
